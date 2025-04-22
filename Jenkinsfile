@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // This step is optional if you're using 'Pipeline script from SCM'
-                git 'https://github.com/ashish-2106/CI-CD-pipeline-using-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/ashish-2106/CI-CD-pipeline-using-Jenkins.git'
                 echo 'Code pulled from GitHub'
             }
         }
