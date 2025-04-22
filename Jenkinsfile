@@ -2,27 +2,31 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Code') {
+        stage('Clone Repository') {
             steps {
+                // This step is optional if you're using 'Pipeline script from SCM'
                 git 'https://github.com/ashish-2106/CI-CD-pipeline-using-Jenkins.git'
+                echo 'Code pulled from GitHub'
             }
         }
 
         stage('Install Dependencies') {
             steps {
+                echo 'Installing dependencies...'
                 sh 'npm install'
             }
         }
 
         stage('Run Tests') {
             steps {
+                echo 'Running tests...'
                 sh 'npm test'
             }
         }
 
-        stage('Deploy (Simulation)') {
+        stage('Build Complete') {
             steps {
-                echo 'Deployment simulated: Your app is ready!'
+                echo '🎉 Build and test successful!'
             }
         }
     }
